@@ -12,11 +12,13 @@ def hello():
 
 @app.route("/",  methods=['POST'])
 def test():
-   pays = request.form['pays']    
-   COVID_API_URL = "https://api.covid19api.com/dayone/country/{}".format(pays)
+   pays = request.form['pays']  
+   date = request.form['date'] + "T00:00:00Z"  
+   COVID_API_URL = "https://api.covid19api.com/live/country/{}/status/confirmed/date/{}".format(
+      pays, date)
    response = requests.get(COVID_API_URL)
    content = json.loads(response.content.decode('utf-8'))
-   return render_template('resultat.html', content=content, pays=pays)
+   return render_template('ApiCovid.html', content=content, pays=pays)
 
 
 
