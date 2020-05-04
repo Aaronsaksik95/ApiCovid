@@ -11,9 +11,13 @@
 {% block content %}
 <p class="pl-3 font-weight-light">Recherchez un pays et choisissez une date.</p>
 <form class="form-inline mb-5 p-3" method="POST">
-   <div class="form-group mb-2">
-      <label for="staticEmail2" class="sr-only">Pays</label>
-      <input type="text" class="form-control" name="pays" value="France">
+   <div class="form-group mx-sm-3 mb-2">
+      <select class="form-control" id="exampleFormControlSelect1" name="pays">
+         <option value="">Choix du pays</option>
+         {% for i in countries %}
+         <option value="{{ i.Country }}">{{ i.Country }}</option>
+         {% endfor %}
+      </select>
    </div>
    <div class="form-group mx-sm-3 mb-2">
       <label for="inputPassword2" class="sr-only">Password</label>
@@ -25,10 +29,10 @@
 <div class="row">
    {% for i in content %}
    {% if (i.Province == "") %}
-   <div class="card m-3 p-0 col-2 bg-info" style="width: 18rem;">
+   <div class="card m-3 p-0 col-2 border-info" style="width: 18rem;">
       <div class="card-body">
-         <h5 class="card-title m">Total</h5>
-         <h6 class="card-subtitle mb-2 text-muted">{{i.Date[0:10]}}</h6>
+         <h5 class="card-title m font-weight-light">Total à cette date</h5>
+         <h6 class="card-subtitle mb-2 text-info">{{i.Date[0:10]}}</h6>
          <ul class="p-3 m-0">
             <li class="card-text">Cas confirmé(s): {{i.Confirmed}}.</li>
             <li class="card-text">Cas rétabli(s): {{i.Recovered}}.</li>
