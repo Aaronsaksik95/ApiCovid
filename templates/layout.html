@@ -18,18 +18,28 @@
     <div class="row m-5">
       <div class="col-3 border-right">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <a class="nav-link active bg-info" id="v-pills-home-tab"  href="/" >Home</a>
-          <a class="nav-link text-info" id="v-pills-profile-tab"  href="" >Profile</a>
-          <a class="nav-link text-info" id="v-pills-messages-tab" href="" >Messages</a>
-          <a class="nav-link text-info" id="v-pills-settings-tab" href="" >Settings</a>
+          <a class="nav-link active bg-info" id="v-pills-home-tab" href="/">Home</a>
+          <a class="nav-link text-info" id="v-pills-profile-tab" href="">Profile</a>
+          <a class="nav-link text-info" id="v-pills-messages-tab" href="">Messages</a>
+          <a class="nav-link text-info" id="v-pills-settings-tab" href="">Settings</a>
         </div>
       </div>
       <div class="col-9">
-        {% block title %}
-        {% endblock title %}
+        <h1 class="text-center mb-4 text-info">
+          {% block title %}
+          {% endblock title %}
+        </h1>
+
+
+        <h4 class="text-justify text-muted font-weight-light">
+          {% block intro %}
+          {% endblock intro %}
+        </h4>
+
       </div>
     </div>
-        
+    </div>
+
   </header>
   <div class="container">
     {% block content %}
